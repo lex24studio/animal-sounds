@@ -35,3 +35,24 @@
   </audio>
 </body>
 </html>
+
+  <script>
+    // Attempt to play the sound automatically
+    window.onload = function () {
+      const player = document.getElementById('player');
+      const playPromise = player.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Autoplay started successfully
+          })
+          .catch(error => {
+            // Autoplay failed (likely due to browser policy)
+            console.log('Autoplay was prevented. Waiting for user interaction.');
+          });
+      }
+    };
+  </script>
+</body>
+</html>
