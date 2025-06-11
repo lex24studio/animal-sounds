@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elephant Sound</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #fef9f4;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Elephant</h1>
+  <img src="Elephant.JPG" alt="Elephant">
+  <br>
+  <audio id="player" controls autoplay>
+    <source src="Elephant.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    window.onload = function () {
+      const player = document.getElementById('player');
+      const playPromise = player.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log('Autoplay was prevented. Waiting for user interaction.');
+        });
+      }
+    };
+  </script>
+</body>
+</html>
